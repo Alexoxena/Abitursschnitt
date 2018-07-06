@@ -4,17 +4,20 @@
 	import java.io.IOException;
 	import java.util.Arrays;
 	import java.util.stream.Stream;
+	import java.io.File;
+	import java.util.Scanner;
+
 
 public class Abiturschnitt {
 	
 
-	
+	static int [] notenBlockEins;
 
 
 	static int punkteB1;
 	static int punkteB2;
 	
-	static int[]notenBlockEins={15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, };
+	//static int[]notenBlockEins={15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, };
 	static int [] notenBlockZwei={ 15, 15, 15, 15, 15};
 	public static void main(String[] args) {
 		
@@ -22,7 +25,8 @@ public class Abiturschnitt {
 		//System.out.println(blockZwei(notenBlockZwei));
 		
 		
-		System.out.println(gesamt());
+		//System.out.println(gesamt());
+		System.out.println(readFile());
 	}
 	public static int blockEins (int [] notenBlockEins){
 		int sum=0;
@@ -61,7 +65,7 @@ public class Abiturschnitt {
 		
 	}
 	
-	static void importFile() {
+	/*static void importFile() {
 	    
 	     //Liest die Datei ein und speichert sie in den String[][] array
 		
@@ -113,6 +117,49 @@ public class Abiturschnitt {
 		return abischnitt;
 		
 	} 
+	public static int [] readFile( ) throws {
+		 
+		 /*try{
+	        @SuppressWarnings("resource")
+			Scanner b = new Scanner(f);
+	        int [] notenBlockEins = new int[b.nextInt()];
+	            for(int i = 0; i < notenBlockEins.length; i++){
+	                notenBlockEins[i] = b.nextInt();
+	            }
+	        for (int o : notenBlockEins){
+	            System.out.println(o);
+	        }
+			// reader.close();
+
+		 }*/
+		 
+		 try{
+		    	
+		        BufferedReader reader = new BufferedReader(new FileReader("textdatei.txt"));
+		        String line;
+		        
+		        for(int i = 0; (line = reader.readLine()) != null; i++) {
+		        }
+
+		        reader.close();
+
+	} // end try
+		 catch(FileNotFoundException ex){
+		        System.out.println("File nicht gefunden");
+		    } // end catch
+		    catch(IOException ex){
+		        System.out.println ("Lesefehler");
+		    } // end catch
+		    catch (IndexOutOfBoundsException ex) {
+		        System.out.println("ups, der int [] notenBlockEins ist zu klein für diese Textfilegroesse");
+		        System.out.println("maximal sind "+notenBlockEins.length+" Zeilen moeglich, sonst muss die Groesse von array in Zeile 9 erhoeht werden");
+		        System.exit(1);
+		    } // end try
+		 
+		 
+	        return notenBlockEins;
+	    }
+	
 	
 	/*public void toString(String array[]){
 		for (int i=0; i<array.length; i++){
