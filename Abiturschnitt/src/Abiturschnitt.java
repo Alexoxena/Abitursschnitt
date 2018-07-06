@@ -28,7 +28,7 @@ public class Abiturschnitt {
 		//System.out.println(gesamt());
 		System.out.println(readFile());
 	}
-	public static int blockEins (int [] notenBlockEins){
+	public static int blockEins (int [] notenBlockEins){ //gesamtpunktzahl block 1 wird aus array berechnet
 		int sum=0;
 
 		int size=notenBlockEins.length;
@@ -49,7 +49,7 @@ public class Abiturschnitt {
 		return punkteB1;
 	}
 	
-	public static int blockZwei( int [] notenBlockZwei){
+	public static int blockZwei( int [] notenBlockZwei){ //gesamtpunktzahl block 2 wird aus array berechnet
 		int sum=0;
 
 		int size= notenBlockZwei.length;
@@ -99,7 +99,7 @@ public class Abiturschnitt {
 	} // end importFile*/
 
 	
-	public static double gesamt(){
+	public static double gesamt(){		//gesamtschnitt wird aus der gesamtpunktzahl berechnet
 		
 		int gesamtpunkte= blockZwei(notenBlockZwei) + blockEins(notenBlockEins);
 		System.out.println(gesamtpunkte);
